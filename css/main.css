@@ -1,0 +1,71 @@
+html,
+      body{
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        width: 100% !important;
+      }
+      #map-canvas{
+          width: 100%;
+          height: 90%;
+          margin: 0;
+          padding: 0;
+      }
+      .aside{
+          height: 100%;
+          width: 100%;
+          //float: left;
+          display: inline;
+      }
+      section{
+          height: 100%;
+          display:block;
+      }
+      img#thumb
+      {
+          max-width: 90%;
+      }
+      .transparente
+      {
+          filter: alpha(opacity=80);
+          opacity: 0.2;
+      }
+      #contenedor{
+          transition: opacity 0.8s ease;
+      }
+      header{
+          /*position: fixed !important;
+          top: 0;
+          width: 100%;
+          z-index: 10;*/
+      }
+      section#vip{
+          max-height: 100%;
+      }
+      #item{
+          margin: 0;
+          width:100%;
+          overflow:hidden;
+      }
+      #ver-meli{
+          margin: 5px;
+      }
+      #vip{
+          display:none;
+      }
+      #meliThumb{
+          width: 95%;
+          margin: 5px;
+          display: block;
+          margin: 10px auto 15px !important;
+      }
+      img#thumb{
+          display: block;
+          margin: 0 auto;
+      }
+      #titulo{
+          text-align: center;
+      }
+      #price{
+          text-align: center;
+      }

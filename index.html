@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TuInmueble Cerca</title>
+    <!--<link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>-->
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <meta name="copyright" content="Ignacio Gavier">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/chico-mobile.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+      
+      
+    </style>
+  </head>
+  <body>
+      <div>
+        <header class="ch-header-section">
+            <h2>TuInmueble Cerca</h2>
+            <nav>
+                <!--<a id="btn-menu" class="ch-btn-disabled" onclick="closeInfoPanel();"></a>-->
+                <a id="btn-menu" class="ch-btn-back" onclick="mostrarCategorias();">Categorias</a>
+            </nav>
+        </header>
+      </div>
+      <div>
+        <section id="vip" class="aside" style="display:none;">
+            <article id="item" class="">
+                <h1 id="titulo"></h1>
+                <p id="price" class="ch-price"></p>
+                <figure id="meliThumb">
+                </figure>
+                <ul class="ch-list">
+                    <li id="seller" class="ch-icon-user">
+                        <a id="seller-link" href="" target="_blank"></a>
+                    </li>
+                    <li id="location" class="ch-icon-map-marker"></li>
+                    <li id="operation" class="ch-icon-shopping-cart"></li>
+                    <li id="ambientes" class="ch-icon-th"></li>
+                    <li id="superficie" class="ch-icon-move"></li>
+                </ul>
+                <a href="" id="ver-meli" class="ch-btn buy" target="_blank">Ver en MercadoLibre</a>
+            </article>
+        </section>
+      </div>
+      
+      <section id="categories" class="select-categories" style="display:none;">
+          <ul class="ch-list">
+              <li>
+                  <a id="MLA1466" onclick="mostrarMapa('MLA1466');">Casas</a>
+              </li>
+              <li>
+                  <a id="MLA1472" onclick="mostrarMapa('MLA1472');">Departamentos</a>
+              </li>
+              <li>
+                  <a id="MLA50541" onclick="mostrarMapa('MLA50541');">Cocheras</a>
+              </li>
+              <li>
+                  <a id="MLA79242" onclick="mostrarMapa('MLA79242');">Locales</a>
+              </li>
+          </ul>
+      </section>
+      
+      <section id="contenedor" style="">
+          <div id="map-canvas"></div>
+      </section>
+      
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAm4eU4vqqtetqytrVOraOeQMwOT0iCF5c"></script>
+    <script src="http://static.mlstatic.com/org-img/sdk/mercadolibre-1.0.4.js"></script> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/functions.js"></script>
+      <script>
+          google.maps.event.addDomListener(window, 'load', initialize);
+      </script>
+  </body>
+</html>
+
