@@ -110,10 +110,10 @@ function initialize() {
       //getItems(1,'MLA1459');
       
       var polygonCoords = [
-            new google.maps.LatLng(pos.lat()-0.05,pos.lng()-0.05),
-            new google.maps.LatLng(pos.lat()+0.05,pos.lng()-0.05),
-            new google.maps.LatLng(pos.lat()+0.05, pos.lng()+0.05),
-            new google.maps.LatLng(pos.lat()-0.05,pos.lng()+0.05)
+            new google.maps.LatLng(pos.lat()-0.02, pos.lng()-0.02),
+            new google.maps.LatLng(pos.lat()+0.02, pos.lng()-0.02),
+            new google.maps.LatLng(pos.lat()+0.02, pos.lng()+0.02),
+            new google.maps.LatLng(pos.lat()-0.02, pos.lng()+0.02)
   ];
   searchRange = new google.maps.Polygon({
     paths: polygonCoords,
@@ -162,7 +162,7 @@ function getItems(category)
     var seguir = false;
     do
     {
-        MELI.get('/sites/MLA/search?category='+category+'&offset='+offset+'&limit=200&item_location=lat:'+(locationLat-0.05)+'_'+(locationLat+0.05)+'%2clon:'+(locationLong-0.05)+'_'+(locationLong+0.05), null, function(data){
+        MELI.get('/sites/MLA/search?category='+category+'&offset='+offset+'&limit=200&item_location=lat:'+(locationLat-0.02)+'_'+(locationLat+0.02)+'%2clon:'+(locationLong-0.02)+'_'+(locationLong+0.02), null, function(data){
         //MELI.get('/sites/MLA/search?category='+category+'&offset='+offset+'&limit=200', null, function(data){
         console.log('Total: ' + data[2].paging.total);   
         $(data[2].results).each(function(i, item){
