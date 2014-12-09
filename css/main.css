@@ -4,6 +4,9 @@ html,
         margin: 0px;
         padding: 0px;
         width: 100% !important;
+        max-width: 100% !important;
+        line-height: inherit !important;
+        
       }
       #map-canvas{
           width: 100%;
@@ -76,4 +79,25 @@ html,
       }
       #price{
           text-align: center;
+      }
+      
+      #listaCategorias li a:nth-child(2){
+          display:none;
+      }
+      #listaCategorias{
+          background:#efc439;
+      }
+      #listaSubcategorias{
+          background: #f3e7c0;
+      }
+      .categoria{
+          text-transform: uppercase;
+          font-weight: bold;
+          color: #333;
+          text-shadow: none !important;
+      }
+      .subcategoria a{
+          color: #555;
+          text-transform: capitalize;
+          text-shadow: none !important;
       }

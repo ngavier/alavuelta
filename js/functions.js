@@ -11,17 +11,52 @@ function clearMarkers()
 }
 function mostrarMapa(catID)
 {
+    //clearMarkers();
     $('#categories').css('display','none');
     console.log('mostrarMapa('+catID+');');
     getItems(catID);
     $('#contenedor').css('display','block');
     $('#btn-menu').removeClass('ch-btn-disabled');
 }
+
+function getCategorias()
+{
+    console.log('getCategorias');
+    MELI.get('/categories/MLA1459',null,function(data){
+        $(data[2].children_categories).each(function(i,item){
+            var li = $('<li id="'+item.id+'" class="categoria"></li>');
+            //li.append('<a onclick=mostrarMapa(\''+item.id+'\');>'+item.name+'<a>');
+            li.append('<p>'+item.name+'</p>');
+            li.appendTo('#listaCategorias');
+            getSubCategorias(item.id,li);
+        });
+        
+    });
+}
+
+function getSubCategorias(id, li)
+{
+    MELI.get('/categories/'+id,null,function(data){
+        var ulSub = $('<ul class="ch-list" id="listaSubcategorias"></ul>').appendTo(li);
+        $(data[2].children_categories).each(function(i,item){
+            var liSub = $('<li id="'+item.id+'" class="subcategoria"></li>');
+            liSub.append('<a onclick=mostrarMapa(\''+item.id+'\');>'+item.name+'<a>');
+            liSub.appendTo(ulSub);
+        });
+    });
+}
+function getItem(id)
+{
+    
+}
+
 function mostrarCategorias()
 {
+    //getCategorias();
     $('#categories').css('display','block');
     $('#contenedor').css('display','none');
     $('#btn-menu').addClass('ch-btn-disabled');
+    //$('#btn-menu').empty().append('Volver').attr('onclick','volverMapa()');
     clearMarkers();
 }
 function mostrarInfo(item)
@@ -31,9 +66,15 @@ function mostrarInfo(item)
         $('#seller-link').append(data[2].nickname);
         $('#seller-link').attr('href',data[2].permalink);
     });
-    console.log(item.id);
+    MELI.get('/items/'+item.id,null,function(data){
+        prod = data[2];
+        $('#meliThumb').append('<img id="thumb" src="' + prod.pictures[0].url + '" />');
+        $('#operation').append(prod.attributes[1].name + ': ' + prod.attributes[1].value_name);
+        $('#ambientes').append(prod.attributes[2].name + ': ' + prod.attributes[2].value_name);
+        $('#superficie').append(prod.attributes[3].name + ': ' + prod.attributes[3].value_name);
+    });
     $('#item #titulo').append(item.title);
-    $('#meliThumb').append('<img id="thumb" src="' + item.thumbnail + '" />'); //Datos del item seleccionado.
+    //$('#meliThumb').append('<img id="thumb" src="' + item.thumbnail + '" />'); //Datos del item seleccionado.
     $('#vip').css('display','block');
     
     var price = item.price;
@@ -50,11 +91,11 @@ function mostrarInfo(item)
     $('#btn-menu').append('Volver');
     $('#ver-meli').attr('href',item.permalink);
     $('#location').append(item.location.address_line);
-    $('#operation').append(item.attributes[1].value_name);
-    $('#ambientes').append(item.attributes[2].value_name);
-    $('#ambientes').append(' Ambientes');
-    $('#superficie').append(item.attributes[3].value_name);
-    $('#superficie').append(' m2');
+    /*$('#operation').append(item.attributes[1].value_name);
+    $('#ambientes').append(item.attributes[2].value_name);*/
+    //$('#ambientes').append(' Ambientes');
+    //$('#superficie').append(item.attributes[3].value_name);
+    //$('#superficie').append(' m2');
 }
 
 function closeInfoPanel()
@@ -86,6 +127,8 @@ function closeInfoPanel()
 
 function initialize() {
     
+    getCategorias();
+    
   var mapOptions = {
     zoom: 13
   };
@@ -110,10 +153,10 @@ function initialize() {
       //getItems(1,'MLA1459');
       
       var polygonCoords = [
-            new google.maps.LatLng(pos.lat()-0.02, pos.lng()-0.02),
-            new google.maps.LatLng(pos.lat()+0.02, pos.lng()-0.02),
-            new google.maps.LatLng(pos.lat()+0.02, pos.lng()+0.02),
-            new google.maps.LatLng(pos.lat()-0.02, pos.lng()+0.02)
+            new google.maps.LatLng(pos.lat()-0.08, pos.lng()-0.08),
+            new google.maps.LatLng(pos.lat()+0.08, pos.lng()-0.08),
+            new google.maps.LatLng(pos.lat()+0.08, pos.lng()+0.08),
+            new google.maps.LatLng(pos.lat()-0.08, pos.lng()+0.08)
   ];
   searchRange = new google.maps.Polygon({
     paths: polygonCoords,
@@ -162,7 +205,7 @@ function getItems(category)
     var seguir = false;
     do
     {
-        MELI.get('/sites/MLA/search?category='+category+'&offset='+offset+'&limit=200&item_location=lat:'+(locationLat-0.02)+'_'+(locationLat+0.02)+'%2clon:'+(locationLong-0.02)+'_'+(locationLong+0.02), null, function(data){
+        MELI.get('/sites/MLA/search?category='+category+'&offset='+offset+'&limit=200&item_location=lat:'+(locationLat-0.08)+'_'+(locationLat+0.08)+'%2clon:'+(locationLong-0.08)+'_'+(locationLong+0.08), null, function(data){
         //MELI.get('/sites/MLA/search?category='+category+'&offset='+offset+'&limit=200', null, function(data){
         console.log('Total: ' + data[2].paging.total);   
         $(data[2].results).each(function(i, item){
