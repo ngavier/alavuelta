@@ -11,30 +11,26 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/chico-mobile.css">
     <link rel="stylesheet" href="css/main.css">
     <!--<link rel="stylesheet" href="http://static.mlstatic.com/org-img/ch/ui/0.13.4/chico-mesh.min.css" type="text/css">-->
-    <style>
-      
-      
-    </style>
   </head>
   <body>
-      <div>
+    <div>
         <header class="ch-header-section">
             <h2>A La Vuelta</h2>
             <nav>
                 <!--<a id="btn-menu" class="ch-btn-disabled" onclick="closeInfoPanel();"></a>-->
                 <a id="btn-menu" class="ch-btn-back" onclick="mostrarCategorias();">Categorias</a>
                 <figure class="header-fig">
-                  <img src="./img/logo-ubp.png" alt="Universidad Blas Pascal" title="Universidad Blas Pascal" />
-                  <img src="./img/logo-meli-transp.png" alt="MercadoLibre" title="MercadoLibre" />
+                    <img src="./img/logo-ubp.png" alt="Universidad Blas Pascal" title="Universidad Blas Pascal" />
+                    <img src="./img/logo-meli-transp.png" alt="MercadoLibre" title="MercadoLibre" />
                 </figure>
             </nav>
-            
         </header>
-      </div>
+    </div>
     <div>
         <section id="vip" class="aside nodisplay popup">
             <article id="item" class="">
@@ -42,8 +38,6 @@
                 <p id="price" class="ch-price"></p>
                 <figure id="meliThumb">
                 </figure>
-                
-                
                 <ul class="ch-list">
                     <li id="seller" class="ch-icon-user">
                         <a id="seller-link" href="" target="_blank"></a>
@@ -57,33 +51,31 @@
                 </ul>
                 <a class="ch-btn buy clearfix" id="mostrar-ruta">Ver Ruta</a>
                 <a href="" id="ver-meli" class="ch-btn buy clearfix" target="_blank">Ver en MercadoLibre</a>
-                
             </article>
         </section>
-      </div>
+    </div>
       
-      <section id="categories" class="select-categories nodisplay">
-          <ul class="ch-list" id="listaCategorias">
-              
-          </ul>
-      </section>
+    <section id="categories" class="select-categories nodisplay">
+        <ul class="ch-list" id="listaCategorias">          
+        </ul>
+    </section>
       
     <div id="directions" class="nodisplay">
         <div id="directions-panel"></div>
         <a class="ch-btn buy clearfix" onclick="eliminarRuta();">Mostrar Todos</a>
     </div>
       
-      <section id="contenedor">
-          <div id="map-canvas"></div>
-      </section>
+    <section id="contenedor">
+        <div id="map-canvas"></div>
+    </section>
       
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAm4eU4vqqtetqytrVOraOeQMwOT0iCF5c&language=es"></script>
     <script src="http://static.mlstatic.com/org-img/sdk/mercadolibre-1.0.4.js"></script> 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="js/functions.js"></script>
-      <script>
-          google.maps.event.addDomListener(window, 'load', initialize);
-      </script>
+    <script>
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
   </body>
 </html>
 
