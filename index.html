@@ -4,7 +4,8 @@
     <title>A La Vuelta</title>
     <!--<link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>-->
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <!--<meta name="viewport" content="initial-scale=1.0, user-scalable=no">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <meta charset="utf-8">
     <meta name="copyright" content="Ignacio Gavier">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -26,16 +27,23 @@
             <nav>
                 <!--<a id="btn-menu" class="ch-btn-disabled" onclick="closeInfoPanel();"></a>-->
                 <a id="btn-menu" class="ch-btn-back" onclick="mostrarCategorias();">Categorias</a>
+                <figure class="header-fig">
+                  <img src="./img/logo-ubp.png" alt="Universidad Blas Pascal" title="Universidad Blas Pascal" />
+                  <img src="./img/logo-meli-transp.png" alt="MercadoLibre" title="MercadoLibre" />
+                </figure>
             </nav>
+            
         </header>
       </div>
-      <div>
-        <section id="vip" class="aside" style="display:none;">
+    <div>
+        <section id="vip" class="aside nodisplay popup">
             <article id="item" class="">
                 <h1 id="titulo"></h1>
                 <p id="price" class="ch-price"></p>
                 <figure id="meliThumb">
                 </figure>
+                
+                
                 <ul class="ch-list">
                     <li id="seller" class="ch-icon-user">
                         <a id="seller-link" href="" target="_blank"></a>
@@ -44,34 +52,32 @@
                     <li id="operation" class="ch-icon-shopping-cart"></li>
                     <li id="ambientes" class="ch-icon-ok"></li>
                     <li id="superficie" class="ch-icon-ok"></li>
+                    <li id="attribute" class="ch-icon-ok"></li>
+                    <li id="attribute2" class="ch-icon-ok"></li>
                 </ul>
-                <a href="" id="ver-meli" class="ch-btn buy" target="_blank">Ver en MercadoLibre</a>
+                <a class="ch-btn buy clearfix" id="mostrar-ruta">Ver Ruta</a>
+                <a href="" id="ver-meli" class="ch-btn buy clearfix" target="_blank">Ver en MercadoLibre</a>
+                
             </article>
         </section>
       </div>
       
-      <section id="categories" class="select-categories" style="display:none;">
+      <section id="categories" class="select-categories nodisplay">
           <ul class="ch-list" id="listaCategorias">
               
           </ul>
-          
-          
       </section>
       
-      <section id="contenedor" style="">
+    <div id="directions" class="nodisplay">
+        <div id="directions-panel"></div>
+        <a class="ch-btn buy clearfix" onclick="eliminarRuta();">Mostrar Todos</a>
+    </div>
+      
+      <section id="contenedor">
           <div id="map-canvas"></div>
       </section>
       
-      <footer>
-          <div id="footer">
-              <figure class="footer-fig">
-                  <img src="./img/logo-ubp.jpg" alt="Universidad Blas Pascal" title="Universidad Blas Pascal" />
-                  <img src="./img/logo-meli.png" alt="MercadoLibre" title="MercadoLibre" />
-              </figure>
-          </div>
-      </footer>
-      
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAm4eU4vqqtetqytrVOraOeQMwOT0iCF5c"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAm4eU4vqqtetqytrVOraOeQMwOT0iCF5c&language=es"></script>
     <script src="http://static.mlstatic.com/org-img/sdk/mercadolibre-1.0.4.js"></script> 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="js/functions.js"></script>

@@ -1,103 +1,155 @@
 html,
-      body{
-        height: 100%;
-        margin: 0px;
-        padding: 0px;
-        width: 100% !important;
-        max-width: 100% !important;
-        line-height: inherit !important;
-        
-      }
-      #map-canvas{
-          width: 100%;
-          height: 100%;
-          margin: 0;
-          padding: 0;
-      }
-      .aside{
-          height: 100%;
-          width: 100%;
-          //float: left;
-          display: inline;
-      }
-      section#contenedor{
-          height: 85%;
-          display:block;
-      }
-      img#thumb
-      {
-          max-width: 90%;
-      }
-      .transparente
-      {
-          filter: alpha(opacity=80);
-          opacity: 0.2;
-      }
-      #contenedor{
-          transition: opacity 0.8s ease;
-      }
-      header{
-          /*position: fixed !important;
-          top: 0;
-          width: 100%;
-          z-index: 10;*/
-      }
-      .footer-fig{
-          margin: 0px auto;
-      }
-      figure.footer-fig > img{
-          width: 70px;
-          height: 57px;
-          padding: 2px 10px;
-      }
-      section#vip{
-          max-height: 100%;
-      }
-      #item{
-          margin: 0;
-          width:100%;
-          overflow:hidden;
-      }
-      #ver-meli{
-          margin: 5px;
-      }
-      #vip{
-          display:none;
-      }
-      #meliThumb{
-          width: 95%;
-          margin: 5px;
-          display: block;
-          margin: 10px auto 15px !important;
-      }
-      img#thumb{
-          display: block;
-          margin: 0 auto;
-      }
-      #titulo{
-          text-align: center;
-      }
-      #price{
-          text-align: center;
-      }
-      
-      #listaCategorias li a:nth-child(2){
-          display:none;
-      }
-      #listaCategorias{
-          background:#efc439;
-      }
-      #listaSubcategorias{
-          background: #f3e7c0;
-      }
-      .categoria{
-          text-transform: uppercase;
-          font-weight: bold;
-          color: #333;
-          text-shadow: none !important;
-      }
-      .subcategoria a{
-          color: #555;
-          text-transform: capitalize;
-          text-shadow: none !important;
-      }
+body{
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  width: 100% !important;
+  max-width: 100% !important;
+  line-height: inherit !important;
+  
+}
+#categories{
+    margin-top: 25px;
+}
+#map-canvas{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.aside{
+    height: 100%;
+    width: 100%;
+    //float: left;
+    display: inline;
+}
+section#contenedor{
+    height: 95%;
+    display:block;
+}
+img#thumb
+{
+    max-width: 90%;
+}
+.transparente
+{
+    filter: alpha(opacity=80);
+    opacity: 0.2;
+}
+#contenedor{
+    transition: opacity 0.8s ease;
+    margin-top: 40px;
+    float: none;
+}
+#directions{
+    float:left;
+    margin-top: 45px;
+    width: 85%;
+}
+header{
+    position: fixed !important;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+.footer-fig{
+    margin: 0px auto;
+}
+figure.header-fig > img{
+    width: 47px;
+    height: 47px;
+    padding: 0;
+    float: right;
+}
+section#vip{
+    max-height: 100%;
+    margin-top: 35px !important;
+}
+#item{
+    margin: 0;
+    width:100%;
+    overflow:hidden;
+}
+#ver-meli,
+#mostrar-ruta{
+    margin: 5px;
+}
+#vip{
+    display:none;
+}
+#meliThumb{
+    width: inherit !important;
+    height: inherit !important;
+    margin: 5px;
+    display: block;
+    margin: 10px auto 15px !important;
+    border: 0 !important;
+}
+img#thumb{
+    display: block;
+    margin: 0 auto;
+}
+#titulo{
+    text-align: center;
+}
+#price{
+    text-align: center;
+}
+
+#listaCategorias li a:nth-child(2){
+    display:none;
+}
+#listaCategorias{
+    background:#efc439;
+}
+#listaSubcategorias{
+    background: #f3e7c0;
+}
+.categoria{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #333;
+    text-shadow: none !important;
+}
+.subcategoria a{
+    color: #555;
+    text-transform: capitalize;
+    text-shadow: none !important;
+}
+.nodisplay{
+    display:none;
+}
+.clearfix{
+    clear:both;
+}
+#vip > ul.ch-list{
+    width: 50%;
+    float: left;
+  }
+#directions-panel{
+    /*width: 45%;*/
+    float: left;
+}
+.popup{
+    width: 85%;
+    margin: auto !important;
+}
+
+@media screen and (min-width: 320px) and (max-width: 800px){
+  ul.ch-list{
+    width: 100%;
+    float: none;
+  }
+  #directions-panel{
+    width: 100%;
+    float: none;
+  }
+  #directions{
+      width: 100% !important;
+      float: none;
+  }
+  #contenedor{
+      width: 100%;
+      float: none;
+  }
+}
