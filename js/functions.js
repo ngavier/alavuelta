@@ -38,6 +38,7 @@ function mostrarMapa(catID)
     $('#btn-menu').text('Categorías');
     $('#btn-menu').attr('onclick','mostrarCategorias();');
     getItems(catID);
+    
 }
 
 function getCategorias()
@@ -74,6 +75,8 @@ function mostrarCategorias()
     $('#btn-menu').text('Mapa');
     $('#btn-menu').attr('onclick','closeCategories();');
     //clearMarkers();
+    eliminarRuta();
+    $('#directions').addClass('nodisplay');
 }
 function closeCategories()
 {
@@ -109,6 +112,7 @@ function verRuta(lat,lng)
     clearMarkers();
     map.setCenter(pos);
     $(document).scrollTop(0);
+    google.maps.event.clearListeners(map, 'idle');
 }
 function eliminarRuta()
 {
@@ -116,6 +120,7 @@ function eliminarRuta()
     $('#directions').toggleClass('nodisplay');
     $('#contenedor').width('100%');
     showMarkers();
+    google.maps.event.addListener(map, "idle", function() {map.setCenter(pos);});
 }
 
 function mostrarInfo(item)
