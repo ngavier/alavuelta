@@ -100,6 +100,7 @@ function verRuta(lat,lng)
     directionsService.route(request, function(response, status) {
       if (status === google.maps.DirectionsStatus.OK) {
         directionsDisplay.setDirections(response);
+        directionsDisplay.setMap(map);
       }
     });
     //$('#ver-ruta').toggleClass('nodisplay');
