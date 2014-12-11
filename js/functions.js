@@ -113,7 +113,7 @@ function verRuta(lat,lng)
     clearMarkers();
     map.setCenter(pos);
     $(document).scrollTop(0);
-    google.maps.event.clearListeners(map, 'idle');
+    
 }
 function eliminarRuta()
 {
@@ -121,7 +121,7 @@ function eliminarRuta()
     $('#directions').toggleClass('nodisplay');
     $('#contenedor').width('100%');
     showMarkers();
-    google.maps.event.addListener(map, "idle", function() {map.setCenter(pos);});
+    //google.maps.event.addListener(map, "idle", function() {map.setCenter(pos);});
 }
 
 function mostrarInfo(item)
